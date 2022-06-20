@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'node:react-app-for-testing' 
+            image 'node:node:lts-bullseye-slim' 
             args '-p 3000:3000' 
         }
     }
