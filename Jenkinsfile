@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'docker:react-app-for-testing' 
+            image 'react-app-for-testing' 
             args '-p 3000:3000' 
         }
     }
