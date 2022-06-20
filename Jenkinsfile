@@ -12,6 +12,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'To include Jest & Selenium'
+                // sh 'npm test'
             }
         }
 
