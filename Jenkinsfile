@@ -7,6 +7,9 @@ pipeline {
             steps {
                 echo 'Buidling The Software'
                 sh 'npm install'
+                dir("src/test/Selenium/selenium") {
+                    sh 'mvn -B -DskipTests clean package'
+                }
             }
         }
 
@@ -14,9 +17,6 @@ pipeline {
             steps {
                 echo 'To include Jest & Selenium'
                 // sh 'npm test'
-                dir("src/test/Selenium/selenium") {
-                    sh 'mvn -B -DskipTests clean package'
-                }
             }
         }
 
