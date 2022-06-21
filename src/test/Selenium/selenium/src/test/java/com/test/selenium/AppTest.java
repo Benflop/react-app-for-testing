@@ -14,7 +14,7 @@ public class AppTest {
 
     @Test
     public void eightComponents() {
-        driver = new ChromeDriver();
+    driver = new ChromeDriver();
 
         driver.get("https://google.com");
 
