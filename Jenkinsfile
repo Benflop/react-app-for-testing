@@ -13,6 +13,9 @@ pipeline {
             steps {
                 echo 'To include Jest & Selenium'
                 // sh 'npm test'
+                dir("test/Selenium/selenium") {
+                    sh 'mvn -B -DskipTests clean package'
+                }
             }
         }
 
