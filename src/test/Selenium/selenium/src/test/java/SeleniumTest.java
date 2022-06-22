@@ -13,8 +13,6 @@ public class SeleniumTest {
 
     // WebDriverManager.chromedriver().setup();
 
-    WebDriverManager.safaridriver().setup();
-
     WebDriver driver = new SafariDriver();
 
     // Launch Website
