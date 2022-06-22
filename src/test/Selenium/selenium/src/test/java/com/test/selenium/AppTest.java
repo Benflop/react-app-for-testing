@@ -10,11 +10,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 // import java.time.Duration;
 
 public class AppTest {
+
     public WebDriver driver;
 
-    @Test
-    public void eightComponents() {
-    driver = new ChromeDriver();
+    public void main(String[] args) {
+        driver = new ChromeDriver();
 
         driver.get("https://google.com");
 
