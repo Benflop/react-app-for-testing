@@ -1,7 +1,7 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-// import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -9,11 +9,13 @@ public class SeleniumTest {
 
   @Test
   public void chromeSession() {
-    System.setProperty("webdriver.chrome.driver", "../../chromedriver");
+    // System.setProperty("webdriver.chrome.driver", "../../chromedriver");
 
-    WebDriverManager.chromedriver().setup();
+    // WebDriverManager.chromedriver().setup();
 
-    WebDriver driver = new ChromeDriver();
+    WebDriverManager.safaridriver().setup();
+
+    WebDriver driver = new SafariDriver();
 
     // Launch Website
     driver.navigate().to("http://www.google.com/");
