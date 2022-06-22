@@ -34,6 +34,8 @@ public class SeleniumTestScript {
         String value = searchBox.getAttribute("value");
         Assertions.assertEquals("Selenium", value);
 
+        System.out.println("Test Complete");
+
         driver.quit();
     }
 }
