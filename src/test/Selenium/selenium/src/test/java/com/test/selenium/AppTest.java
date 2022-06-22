@@ -11,9 +11,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class AppTest {
 
-    public WebDriver driver;
+    public static WebDriver driver;
 
-    public void main(String[] args) {
+    public static void main(String[] args) {
         driver = new ChromeDriver();
 
         driver.get("https://google.com");
