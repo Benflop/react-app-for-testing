@@ -17,7 +17,9 @@ pipeline {
             steps {
                 echo 'To include Jest & Selenium'
                 // sh 'npm test'
-                sh 'mvn test'
+                dir("src/test/Selenium/selenium") {
+                    sh 'mvn test'
+                }
                 // dir("src/test/Selenium/selenium/target") {
                 //     sh 'java -jar selenium-1.0-SNAPSHOT.jar'
                 // }
