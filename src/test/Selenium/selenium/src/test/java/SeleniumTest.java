@@ -9,7 +9,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.time.Duration;
 
-public class SeleniumTestScript {
+public class SeleniumTest {
 
     @Test
     public void chromeSession() {
