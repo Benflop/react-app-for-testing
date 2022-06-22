@@ -1,7 +1,5 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -11,12 +9,14 @@ public class SeleniumTest {
   public void chromeSession() {
     // System.setProperty("webdriver.chrome.driver", "../../chromedriver");
 
-    // WebDriverManager.chromedriver().setup();
-
-    WebDriver driver = new SafariDriver();
+    WebDriver driver = new ChromeDriver();
 
     // Launch Website
     driver.navigate().to("http://www.google.com/");
+
+    String expectedTitle = "Google";
+    String originalTitle = driver.getTitle();
+    Assert.assertEquals(originalTitle, expectedTitle);
 
     driver.quit();
   }
