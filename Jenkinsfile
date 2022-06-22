@@ -8,7 +8,7 @@ pipeline {
                 echo 'Buidling The Software'
                 sh 'npm install'
                 dir("src/test/Selenium/selenium") {
-                    sh 'mvn install'
+                    sh 'mvn -B -DskipTests clean package'
                 }
             }
         }
