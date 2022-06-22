@@ -9,7 +9,7 @@ import org.testng.annotations.*;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-import java.time.Duration;
+// import java.time.Duration;
 
 public class SeleniumTest {
 
@@ -24,7 +24,7 @@ public class SeleniumTest {
         String title = driver.getTitle();
         Assertions.assertEquals("Google", title);
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
+        // driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
 
         WebElement searchBox = driver.findElement(By.name("q"));
         WebElement searchButton = driver.findElement(By.name("btnK"));
