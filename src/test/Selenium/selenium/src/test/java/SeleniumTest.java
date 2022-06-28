@@ -7,7 +7,7 @@ public class SeleniumTest {
 
   @Test
   public void chromeSession() {
-    System.setProperty("webdriver.chrome.driver", "../../chromedriver");
+    System.setProperty("webdriver.chrome.driver", "chromedriver");
 
     WebDriver driver = new ChromeDriver();
 
