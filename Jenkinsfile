@@ -4,8 +4,9 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Buidling The Software'
+        sh 'apt-get install libglib2.0-0'
         sh 'npm install'
-        sh 'sudo apt-get install libglib2.0-0'
+        
       }
     }
 
