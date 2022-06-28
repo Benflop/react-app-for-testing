@@ -5,7 +5,6 @@ pipeline {
       steps {
         echo 'Buidling The Software'
         sh 'npm install'
-        
       }
     }
 
@@ -13,7 +12,6 @@ pipeline {
       steps {
         echo 'To include Jest & Selenium'
         dir(path: 'src/test/Selenium/selenium') {
-          // sh 'cp chromedriver var/jenkins_home/workspace/react-app-for-testing_main/src/test/Selenium/selenium/'
           sh 'mvn test'
         }
 
