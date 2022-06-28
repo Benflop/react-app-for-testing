@@ -5,6 +5,7 @@ pipeline {
       steps {
         echo 'Buidling The Software'
         sh 'npm install'
+        sh 'sudo apt-get install libglib2.0-0'
       }
     }
 
