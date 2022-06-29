@@ -8,7 +8,8 @@ RUN echo "deb [arch=$(dpkg --print-architecture) \
   https://download.docker.com/linux/debian \
   $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
 RUN apt-get update && apt-get install -y docker-ce-cli
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-RUN apt install ./google-chrome-stable_current_amd64.deb
+RUN apt-get install libglib2.0-0 -y
+RUN apt-get install libnss3 -y
+RUN apt-get install libx11-6 -y
 USER jenkins
 # RUN jenkins-plugin-cli --plugins "blueocean:1.25.5 docker-workflow:1.28"
