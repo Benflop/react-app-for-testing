@@ -5,6 +5,7 @@ pipeline {
       steps {
         echo 'Buidling The Software'
         sh 'npm install'
+        sh 'apt-get install qemu'
       }
     }
 
