@@ -5,19 +5,27 @@ import org.testng.annotations.*;
 
 public class SeleniumTest {
 
-  @Test
-  public void chromeSession() {
-    System.setProperty("webdriver.chrome.driver", "chromedriver");
-
+  public static void main(String[] args) {
     WebDriver driver = new ChromeDriver();
 
-    // Launch Website
-    driver.navigate().to("http://www.google.com/");
-
-    String expectedTitle = "Google";
-    String originalTitle = driver.getTitle();
-    Assert.assertEquals(originalTitle, expectedTitle);
+    driver.get("https://selenium.dev");
 
     driver.quit();
-  }
+}
+
+  // @Test
+  // public void chromeSession() {
+  //   System.setProperty("webdriver.chrome.driver", "chromedriver");
+
+  //   WebDriver driver = new ChromeDriver();
+
+  //   // Launch Website
+  //   driver.navigate().to("http://www.google.com/");
+
+  //   String expectedTitle = "Google";
+  //   String originalTitle = driver.getTitle();
+  //   Assert.assertEquals(originalTitle, expectedTitle);
+
+  //   driver.quit();
+  // }
 }
