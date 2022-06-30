@@ -1,4 +1,3 @@
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.testng.Assert;
@@ -8,8 +7,6 @@ public class SeleniumTest {
 
   @Test
   public void chromeSession() {
-    // System.setProperty("webdriver.chrome.driver", "chromedriver");
-    // WebDriver driver = new ChromeDriver();
 
     System.setProperty("webdriver.chrome.whitelistedIps", "");
 
