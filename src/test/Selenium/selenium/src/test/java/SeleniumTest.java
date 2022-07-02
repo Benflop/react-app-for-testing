@@ -18,7 +18,7 @@ public class SeleniumTest {
 
     String expectedTitle = "Google";
     String originalTitle = driver.getTitle();
-    Assert.assertEquals(originalTitle, "Tester");
+    Assert.assertEquals(originalTitle, expectedTitle);
     System.out.println("Assertion Successful");
 
     driver.quit();
