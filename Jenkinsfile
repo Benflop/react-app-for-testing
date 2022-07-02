@@ -5,6 +5,8 @@ pipeline {
       steps {
         echo 'Buidling The Software'
         sh 'npm install'
+        // sh 'npm test'
+        // sh 'npm start'
       }
     }
 
@@ -14,7 +16,6 @@ pipeline {
         dir(path: 'src/test/Selenium/selenium') {
           sh 'mvn test'
         }
-
       }
     }
 
