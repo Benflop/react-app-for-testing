@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-        any {
-            // image 'node:lts-bullseye-slim'
-            args '-p 3000:3000'
-        }
-  }
+  agent any
   stages {
     stage('Build') {
       steps {
@@ -33,7 +28,7 @@ pipeline {
         sh 'set +x'
 
         sh 'set -x'
-        sh 'npm start'
+        sh 'npm start & sleep 1'
         echo '$! > .pidfile'
         sh 'set +x'
 
