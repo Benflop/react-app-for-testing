@@ -28,7 +28,7 @@ pipeline {
         sh 'set +x'
 
         sh 'set -x'
-        sh 'npm start & sleep 1'
+        sh 'npm start'
         echo '$! > .pidfile'
         sh 'set +x'
 
