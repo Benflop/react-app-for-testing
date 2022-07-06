@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  docker {
+            args '-p 3000:3000'
+        }
   stages {
     stage('Build') {
       steps {
@@ -22,6 +25,18 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'To Deploy & Serve React App'
+
+        set -x
+        sh 'npm run build'
+        set +x
+
+        set -x
+        sh 'npm start & sleep 1'
+        echo $! > .pidfile
+        set +x
+
+        echo 'You can visit the site now at http://localhost:3000'
+        input message: 'Finished using the web site? (Click "Proceed" to continue)'
       }
     }
 
