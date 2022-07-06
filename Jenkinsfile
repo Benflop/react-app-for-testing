@@ -1,8 +1,10 @@
 pipeline {
-  agent any
-  docker {
+  agent {
+        docker {
+            // image 'node:lts-bullseye-slim'
             args '-p 3000:3000'
         }
+  }
   stages {
     stage('Build') {
       steps {
@@ -26,17 +28,19 @@ pipeline {
       steps {
         echo 'To Deploy & Serve React App'
 
-        set -x
+        sh 'set -x'
         sh 'npm run build'
-        set +x
+        sh 'set +x'
 
-        set -x
+        sh 'set -x'
         sh 'npm start & sleep 1'
         echo '$! > .pidfile'
-        set +x
+        sh 'set +x'
 
         echo 'You can visit the site now at http://localhost:3000'
         input message: 'Finished using the web site? (Click "Proceed" to continue)'
+        sh 'set -x'
+        sh 'kill $(cat .pidfile)'
       }
     }
 
