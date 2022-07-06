@@ -8,10 +8,6 @@ RUN echo "deb [arch=$(dpkg --print-architecture) \
   https://download.docker.com/linux/debian \
   $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
 RUN apt-get update && apt-get install -y docker-ce-cli
-# RUN apt-get install libglib2.0-0 -y
-# RUN apt-get install libnss3 -y
-# RUN apt-get install libx11-6 -y
-# RUN apt-get install chromium -y
 
 WORKDIR /usr/app
 
