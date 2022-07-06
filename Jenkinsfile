@@ -19,7 +19,7 @@ pipeline {
       steps {
         echo 'To include Jest & Selenium'
         dir(path: 'src/test/Selenium/selenium') {
-          sh 'mvn test'
+          // sh 'mvn test'
         }
       }
     }
@@ -40,7 +40,7 @@ pipeline {
         echo 'You can visit the site now at http://localhost:3000'
         input message: 'Finished using the web site? (Click "Proceed" to continue)'
         sh 'set -x'
-        sh 'kill $(cat .pidfile)'
+        // sh 'kill $(cat .pidfile)'
       }
     }
 
