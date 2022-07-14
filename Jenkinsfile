@@ -17,13 +17,9 @@ pipeline {
     stage('Test') {
       steps {
         echo 'To include Jest & Selenium'
-<<<<<<< Updated upstream
-        dir(path: 'src/test/Selenium/selenium')
-=======
         dir(path: 'src/test/Selenium/selenium') {
           sh 'mvn test'
         }
->>>>>>> Stashed changes
       }
     }
 
