@@ -26,6 +26,11 @@ pipeline {
 
     stage('Deploy') {
       steps {
+        dir(path: 'build') {
+          sh 'docker build -t react-app-for-testing .'
+        }
+      }
+      steps {
         echo 'To Deploy & Serve React App'
         // dir(path: 'build') {
         //   sh 'docker build -t react-app-for-testing .'
@@ -40,7 +45,7 @@ pipeline {
         echo 'You can visit the site now at http://localhost:3000'
         input 'Finished using the web site? (Click "Proceed" to continue)'
         sh 'set -x'
-        telegramSend 'Test Message'
+        // telegramSend 'Test Message'
       }
     }
 
