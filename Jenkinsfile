@@ -27,7 +27,7 @@ pipeline {
       steps {
         echo 'To Deploy & Serve React App'
         dir(path: 'build') {
-          sh 'docker build -t benflop/react-app-for-testing .'
+          sh 'docker build -t react-app-for-testing .'
         }
         // sh 'set -x'
         // sh 'npm run build'
