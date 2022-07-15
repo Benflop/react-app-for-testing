@@ -30,7 +30,7 @@ pipeline {
         sh 'npm run build'
         sh 'set +x'
         sh 'set -x'
-        sh 'npm start'
+        sh 'npm start & sleep 1'
         echo '$! > .pidfile'
         sh 'set +x'
         echo 'You can visit the site now at http://localhost:3000'
