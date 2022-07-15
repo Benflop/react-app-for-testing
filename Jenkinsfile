@@ -40,6 +40,7 @@ pipeline {
         input 'Finished using the web site? (Click "Proceed" to continue)'
         sh 'set -x'
         // sh 'kill $(cat .pidfile)'
+        telegramSend 'Deployed Succcessful'
       }
     }
 
