@@ -36,7 +36,7 @@ pipeline {
         echo 'You can visit the site now at http://localhost:3000'
         input 'Finished using the web site? (Click "Proceed" to continue)'
         sh 'set -x'
-        sh 'kill $(cat .pidfile)'
+        // sh 'kill $(cat .pidfile)'
       }
     }
 
