@@ -26,10 +26,13 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'To Deploy & Serve React App'
-        sh 'set -x'
-        sh 'npm run build'
-        sh 'set +x'
-        sh 'set -x'
+         dir(path: 'build') {
+          sh 'docker-compose -f docker-compose.prod.yml build'
+        }
+        // sh 'set -x'
+        // sh 'npm run build'
+        // sh 'set +x'
+        // sh 'set -x'
         sh 'npm start & sleep 1'
         echo '$! > .pidfile'
         sh 'set +x'
