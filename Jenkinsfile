@@ -20,6 +20,7 @@ pipeline {
         dir(path: 'src/test/Selenium/selenium') {
           sh 'mvn test'
         }
+
       }
     }
 
@@ -29,6 +30,7 @@ pipeline {
         dir(path: 'build') {
           sh 'docker build -t react-app-for-testing .'
         }
+
         sh 'set -x'
         sh 'npm run build'
         sh 'set +x'
@@ -39,8 +41,7 @@ pipeline {
         echo 'You can visit the site now at http://localhost:3000'
         input 'Finished using the web site? (Click "Proceed" to continue)'
         sh 'set -x'
-        // sh 'kill $(cat .pidfile)'
-        // sh 'telegramSend 'Deployed Succcessful''
+        telegramSend 'Test Message'
       }
     }
 
