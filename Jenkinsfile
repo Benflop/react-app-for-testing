@@ -27,7 +27,7 @@ pipeline {
       steps {
         echo 'To Deploy & Serve React App'
         dir(path: 'build') {
-          docker build -t react-app-for-testing .
+          docker build .
         }
         sh 'set -x'
         sh 'npm run build'
