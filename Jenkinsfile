@@ -26,9 +26,8 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'To Deploy & Serve React App'
-         dir(path: 'build') {
-          sh 'docker-compose -f docker-compose.prod.yml build'
-        }
+        sh 'cp ../build'
+        sh 'docker-compose -f docker-compose.prod.yml build'
         // sh 'set -x'
         // sh 'npm run build'
         // sh 'set +x'
