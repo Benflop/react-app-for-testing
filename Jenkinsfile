@@ -26,15 +26,10 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        dir(path: 'build') {
-          sh 'docker build -t react-app-for-testing .'
-        }
-      }
-      steps {
         echo 'To Deploy & Serve React App'
-        // dir(path: 'build') {
-        //   sh 'docker build -t react-app-for-testing .'
-        // }
+        dir(path: 'build') {
+          sh 'docker build .'
+        }
         sh 'set -x'
         sh 'npm run build'
         sh 'set +x'
