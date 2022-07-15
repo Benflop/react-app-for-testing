@@ -18,7 +18,7 @@ pipeline {
       steps {
         echo 'To include Jest & Selenium'
         dir(path: 'src/test/Selenium/selenium') {
-          sh 'mvn test'
+          // sh 'mvn test'
         }
 
       }
