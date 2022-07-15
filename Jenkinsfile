@@ -26,9 +26,9 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'To Deploy & Serve React App'
-        dir(path: 'build') {
-          docker build .
-        }
+        // dir(path: 'build') {
+        //   sh 'docker build -t react-app-for-testing .'
+        // }
         sh 'set -x'
         sh 'npm run build'
         sh 'set +x'
@@ -40,7 +40,7 @@ pipeline {
         input 'Finished using the web site? (Click "Proceed" to continue)'
         sh 'set -x'
         // sh 'kill $(cat .pidfile)'
-        // telegramSend 'Deployed Succcessful'
+        sh 'telegramSend 'Deployed Succcessful''
       }
     }
 
