@@ -27,8 +27,9 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'To Deploy & Serve React App'
+        sh 'cp package.json package-lock.json /build'
         dir(path: 'build') {
-          sh 'docker build .'
+          sh 'docker build -t react-app-for-testing .'
         }
         sh 'set -x'
         sh 'npm run build'
