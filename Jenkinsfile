@@ -4,6 +4,9 @@ pipeline {
       image 'node:lts-bullseye-slim'
       args '-p 3000:3000'
     }
+    environment {
+      		DOCKERHUB_CREDENTIALS=credentials('Docker')
+    }
 
   }
   stages {
@@ -34,7 +37,7 @@ pipeline {
         sh 'cp -R ./public ./build'
         dir(path: 'build') {
           sh 'docker build -t react-app-for-testing .'
-          sh 'docker login -u benflop'
+          sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
           sh 'docker tag react-app-for-testing benflop/react-app-for-testing:latest'
           sh 'docker push benflop/react-app-for-testing:latest'
         }
