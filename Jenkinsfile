@@ -34,6 +34,7 @@ pipeline {
         sh 'cp -R ./public ./build'
         dir(path: 'build') {
           sh 'docker build -t react-app-for-testing .'
+          sh 'docker login -u benflop'
           sh 'docker tag react-app-for-testing benflop/react-app-for-testing:latest'
           sh 'docker push benflop/react-app-for-testing:latest'
         }
