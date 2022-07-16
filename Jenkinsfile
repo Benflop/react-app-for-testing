@@ -29,7 +29,7 @@ pipeline {
         echo 'To Deploy & Serve React App'
         sh 'cp package.json package-lock.json ./build'
         sh 'cp -R ./src ./build'
-        sh 'cp =R ./public ./build'
+        sh 'cp -R ./public ./build'
         dir(path: 'build') {
           sh 'docker build -t react-app-for-testing .'
         }
