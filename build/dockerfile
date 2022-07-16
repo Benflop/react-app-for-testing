@@ -7,7 +7,7 @@ COPY package.json ./
 COPY package-lock.json ./
 RUN npm install --production
 # Copy app files
-COPY . .
+COPY ./ ./
 # Build the app
 RUN npm build
 
