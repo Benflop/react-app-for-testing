@@ -9,18 +9,20 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo 'Buidling The Software'
+        echo 'Building The Software'
         sh 'npm install'
       }
     }
 
     stage('Test') {
       steps {
-        echo 'To include Jest & Selenium'
-        dir(path: 'src/test/Selenium/selenium') {
-          // sh 'mvn test'
-        }
+        echo 'Jest Test'
+        // sh 'npm test'
 
+        echo 'Selenium Test'
+        dir(path: 'src/test/Selenium/selenium') {
+          sh 'mvn test'
+        }
       }
     }
 
@@ -32,10 +34,8 @@ pipeline {
         sh 'cp -R ./public ./build'
         dir(path: 'build') {
           sh 'docker build -t react-app-for-testing .'
+          sh 'docker push benflop/react-app-for-testing'
         }
-        sh 'set -x'
-        sh 'npm run build'
-        sh 'set +x'
         sh 'set -x'
         sh 'npm start & sleep 1'
         echo '$! > .pidfile'
