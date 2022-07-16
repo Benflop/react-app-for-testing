@@ -30,7 +30,7 @@ pipeline {
         sh 'cp package.json package-lock.json ./build'
         sh 'cp -R ./src ./build'
         dir(path: 'build') {
-          sh 'docker-compose -f docker-compose.prod.yml build'
+          sh 'docker build -t react-app-for-testing .'
         }
         sh 'set -x'
         sh 'npm run build'
