@@ -28,8 +28,9 @@ pipeline {
       steps {
         echo 'To Deploy & Serve React App'
         sh 'cp package.json package-lock.json ./build'
+        sh 'cp src ./build'
         dir(path: 'build') {
-          sh 'docker build -t react-app-for-testing .'
+          sh 'docker-compose -f docker-compose.prod.yml build'
         }
         sh 'set -x'
         sh 'npm run build'
