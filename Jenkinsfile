@@ -28,13 +28,13 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        echo 'To Deploy & Serve React App'
+        echo 'To Deploy & Serve React App in Docker Image'
         sh 'cp package.json package-lock.json ./build'
         sh 'cp -R ./src ./build'
         sh 'cp -R ./public ./build'
         dir(path: 'build') {
           sh 'docker build -t react-app-for-testing .'
-          sh 'docker push benflop/react-app-for-testing'
+          sh 'docker push benflop/react-app-for-testing:latest'
         }
         sh 'set -x'
         sh 'npm start & sleep 1'
