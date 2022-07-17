@@ -11,7 +11,7 @@ pipeline {
   }
   
   stages {
-    stage('Build') {
+    stage('Setup') {
       steps {
         echo 'Building The Software'
         sh 'npm install'
@@ -22,7 +22,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Jest Test'
-        sh 'npm jest --watchAll'
+        sh 'npm --watchAll test'
 
         echo 'Selenium Test'
         dir(path: 'src/test/Selenium/selenium') {
