@@ -15,6 +15,7 @@ pipeline {
       steps {
         echo 'Building The Software'
         sh 'npm install'
+        sh 'npm start & sleep 1'
       }
     }
 
@@ -42,13 +43,13 @@ pipeline {
           sh 'docker tag react-app-for-testing benflop/react-app-for-testing:latest'
           sh 'docker push benflop/react-app-for-testing:latest'
         }
-        sh 'set -x'
-        sh 'npm start & sleep 1'
-        echo '$! > .pidfile'
-        sh 'set +x'
-        echo 'You can visit the site now at http://localhost:3000'
-        input 'Finished using the web site? (Click "Proceed" to continue)'
-        sh 'set -x'
+        // sh 'set -x'
+        // sh 'npm start & sleep 1'
+        // echo '$! > .pidfile'
+        // sh 'set +x'
+        // echo 'You can visit the site now at http://localhost:3000'
+        // input 'Finished using the web site? (Click "Proceed" to continue)'
+        // sh 'set -x'
         // telegramSend 'Test Message'
       }
     }
