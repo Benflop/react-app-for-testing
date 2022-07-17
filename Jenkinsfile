@@ -43,7 +43,7 @@ pipeline {
           sh 'docker tag react-app-for-testing benflop/react-app-for-testing:latest'
           sh 'docker push benflop/react-app-for-testing:latest'
         }
-        telegramSend 'Test Message'
+        // To add notification upon build success
       }
     }
 
