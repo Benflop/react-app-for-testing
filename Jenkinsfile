@@ -13,7 +13,7 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
-        echo 'Building The Software'
+        echo 'Setting up the Software'
         sh 'npm install'
         sh 'npm start & sleep 1'
       }
