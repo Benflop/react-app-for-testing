@@ -10,16 +10,15 @@ public class SeleniumTest {
     FirefoxOptions options = new FirefoxOptions();
     options.addArguments("--headless");
 
-    // WebDriverManager.chromedriver().setup();
     FirefoxDriver driver = new FirefoxDriver(options);
 
     // Launch Website
-    driver.navigate().to("http://www.google.com/");
+    driver.navigate().to("http://localhost:3000/");
 
-    String expectedTitle = "Google";
+    String expectedTitle = "React App";
     String originalTitle = driver.getTitle();
     Assert.assertEquals(originalTitle, expectedTitle);
-    System.out.println("Assertion Successful");
+    System.out.println("Assertion Successful - Open React App");
 
     driver.quit();
   }
