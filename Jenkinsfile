@@ -22,7 +22,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Jest Test'
-        // sh 'npm test'
+        sh 'npm jest --watchAll'
 
         echo 'Selenium Test'
         dir(path: 'src/test/Selenium/selenium') {
@@ -43,13 +43,6 @@ pipeline {
           sh 'docker tag react-app-for-testing benflop/react-app-for-testing:latest'
           sh 'docker push benflop/react-app-for-testing:latest'
         }
-        // sh 'set -x'
-        // sh 'npm start & sleep 1'
-        // echo '$! > .pidfile'
-        // sh 'set +x'
-        // echo 'You can visit the site now at http://localhost:3000'
-        // input 'Finished using the web site? (Click "Proceed" to continue)'
-        // sh 'set -x'
         // telegramSend 'Test Message'
       }
     }
