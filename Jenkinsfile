@@ -43,18 +43,15 @@ pipeline {
           sh 'docker tag react-app-for-testing benflop/react-app-for-testing:latest'
           sh 'docker push benflop/react-app-for-testing:latest'
         }
+        notifySuccessful()
       }
     }
-
-    post {
-    success {
-        slackSend "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
-        }
-    }
-
   }
   tools {
     nodejs 'NodeJS 18.4.0'
     maven 'Maven3'
   }
-}
+
+  def notifySuccessful() {
+    slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+    }
