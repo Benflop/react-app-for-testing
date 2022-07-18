@@ -51,8 +51,8 @@ pipeline {
     nodejs 'NodeJS 18.4.0'
     maven 'Maven3'
   }
+}
 
-  def notifySuccessful() {
+def notifySuccessful() {
     slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
     }
-}
