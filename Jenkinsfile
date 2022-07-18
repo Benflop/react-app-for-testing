@@ -12,14 +12,10 @@ pipeline {
   
   stages {
     stage('Setup') {
-      try{
       steps {
         echo 'Setting up the Software'
         sh 'npm install'
         sh 'npm start & sleep 1'
-      }}
-      catch(e) {
-        notifyFailure()
       }
     }
 
@@ -51,6 +47,17 @@ pipeline {
       }
     }
   }
+
+  post {
+    success {
+      notifySuccessful()
+    }
+
+    failure {
+      notifyFailure()
+    }
+  }
+
   tools {
     nodejs 'NodeJS 18.4.0'
     maven 'Maven3'
