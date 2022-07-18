@@ -13,9 +13,14 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
+        try {
         echo 'Setting up the Software'
         sh 'npm install'
         sh 'npm start & sleep 1'
+        }
+        catch(e) {
+          notifyFailure()
+        }
       }
     }
 
@@ -54,5 +59,9 @@ pipeline {
 }
 
 def notifySuccessful() {
-    slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-    }
+  slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+}
+
+def notifyFailure() {
+  slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+}
