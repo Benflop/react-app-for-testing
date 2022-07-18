@@ -12,15 +12,14 @@ pipeline {
   
   stages {
     stage('Setup') {
+      try{
       steps {
-        try {
         echo 'Setting up the Software'
         sh 'npm install'
         sh 'npm start & sleep 1'
-        }
-        catch(e) {
-          notifyFailure()
-        }
+      }}
+      catch(e) {
+        notifyFailure()
       }
     }
 
