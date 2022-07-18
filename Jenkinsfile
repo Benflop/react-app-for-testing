@@ -13,6 +13,7 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
+        buildStarted()
         echo 'Setting up the Software'
         sh 'npm install'
         sh 'npm start & sleep 1'
@@ -61,6 +62,10 @@ pipeline {
     nodejs 'NodeJS 18.4.0'
     maven 'Maven3'
   }
+}
+
+def buildStarted() {
+  slackSend (color: '#808080', message: "BUILD STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
 }
 
 def notifySuccessful() {
