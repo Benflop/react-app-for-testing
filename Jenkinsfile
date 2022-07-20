@@ -16,7 +16,7 @@ pipeline {
         buildStarted()
         echo 'Setting up the Software'
         sh 'npm install'
-        sh 'npm start & sleep 1'
+        sh 'npm start & sleep 5'
       }
     }
 
