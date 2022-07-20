@@ -49,17 +49,14 @@ pipeline {
     nodejs 'NodeJS 18.4.0'
     maven 'Maven3'
   }
-  environment {
-    DOCKERHUB_CREDENTIALS = credentials('Docker')
-  }
-  post {
-    success {
-      notifySuccessful()
-    }
+  
+  // post {
+  //   success {
+  //     notifySuccessful()
+  //   }
 
-    failure {
-      notifyFailure()
-    }
-
-  }
+  //   failure {
+  //     notifyFailure()
+  //   }
+  // }
 }
