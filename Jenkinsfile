@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
-        buildStarted()
+        // buildStarted()
         echo 'Setting up the Software'
         sh 'npm install'
         sh 'npm start & sleep 1'
