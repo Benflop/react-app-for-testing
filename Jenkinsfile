@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
-        // buildStarted()
+        buildStarted()
         echo 'Setting up the Software'
         sh 'npm install'
         sh 'npm start & sleep 1'
@@ -40,23 +40,34 @@ pipeline {
           sh 'docker tag react-app-for-testing benflop/react-app-for-testing:latest'
           sh 'docker push benflop/react-app-for-testing:latest'
         }
-
       }
     }
-
   }
+
   tools {
     nodejs 'NodeJS 18.4.0'
     maven 'Maven3'
   }
   
-  // post {
-  //   success {
-  //     notifySuccessful()
-  //   }
+  post {
+    success {
+      notifySuccessful()
+    }
 
-  //   failure {
-  //     notifyFailure()
-  //   }
-  // }
+    failure {
+      notifyFailure()
+    }
+  }
+}
+
+def buildStarted() {
+    slackSend (color: '#808080', message: "BUILD STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+}
+
+def notifySuccessful() {
+  slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+}
+
+def notifyFailure() {
+  slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
 }
