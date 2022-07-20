@@ -4,8 +4,12 @@ pipeline {
       image 'node:lts-bullseye-slim'
       args '-p 3000:3000'
     }
-
   }
+
+  environment {
+        DOCKERHUB_CREDENTIALS=credentials('Docker')
+  }
+
   stages {
     stage('Setup') {
       steps {
