@@ -15,7 +15,7 @@ public class SeleniumTest {
     // Launch Website
     driver.navigate().to("http://localhost:3000/");
 
-    String expectedTitle = "React App";
+    String expectedTitle = "React";
     String originalTitle = driver.getTitle();
     Assert.assertEquals(originalTitle, expectedTitle);
     System.out.println("Assertion Successful - Open React App");
