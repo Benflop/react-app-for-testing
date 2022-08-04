@@ -18,6 +18,7 @@ public class SeleniumTest {
     String expectedTitle = "React App";
     String originalTitle = driver.getTitle();
     Assert.assertEquals(originalTitle, expectedTitle);
+    // Print Assertion
     System.out.println("Assertion Successful - Open React App");
 
     // Driver Quit
