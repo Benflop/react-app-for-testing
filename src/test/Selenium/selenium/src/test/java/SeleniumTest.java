@@ -20,6 +20,7 @@ public class SeleniumTest {
     Assert.assertEquals(originalTitle, expectedTitle);
     System.out.println("Assertion Successful - Open React App");
 
+    // Driver Quit
     driver.quit();
   }
 }
